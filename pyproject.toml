@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "titan-statutory-mcp-gate"
+version = "1.0.0"
+description = "Stateless diagnostic statutory applicability, schema readiness, and Ed25519 workpaper hash gate for US, EU, and UAE compliance workflows."
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.10"
+authors = [
+  {name = "TITAN Capital Forensics LLC", email = "audit@titancapitalforensics.com"}
+]
+keywords = [
+  "mcp",
+  "compliance",
+  "cbam",
+  "eudr",
+  "drawback",
+  "179d",
+  "cmmc",
+  "gdpr",
+  "qfzp",
+  "ed25519"
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Financial and Insurance Industry",
+  "Intended Audience :: Legal Industry",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Office/Business :: Financial",
+  "Topic :: Security :: Cryptography"
+]
+dependencies = [
+  "cryptography>=42.0.0"
+]
+
+[project.urls]
+Homepage = "https://titancapitalforensics.com/"
+Repository = "https://github.com/titan-capital-forensics/titan-statutory-mcp-gate"
+Issues = "https://github.com/titan-capital-forensics/titan-statutory-mcp-gate/issues"
+
+[project.scripts]
+titan-statutory-mcp-gate = "titan_statutory_mcp_gate.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

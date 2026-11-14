@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.titancapitalforensics/statutory-gate",
+  "title": "TITAN Statutory Gate",
+  "description": "Stateless diagnostic applicability and schema gate for US, EU, and UAE statutory filings.",
+  "version": "1.0.0",
+  "websiteUrl": "https://titancapitalforensics.com/",
+  "repository": {
+    "url": "https://github.com/titan-capital-forensics/titan-statutory-mcp-gate",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.titancapitalforensics.com/mcp"
+    }
+  ]
+}
