@@ -2,32 +2,35 @@
 
 <!-- mcp-name: com.titancapitalforensics/statutory-gate -->
 
-Stateless diagnostic statutory applicability, schema readiness, and Ed25519 workpaper hash verification MCP server operated by **TITAN Capital Forensics LLC** (Albuquerque, New Mexico, USA).
+Stateless diagnostic statutory applicability, schema readiness, and `Ed25519` workpaper signature verification Model Context Protocol (MCP) server operated by **TITAN Capital Forensics LLC** (Registered Jurisdiction: Albuquerque, New Mexico, USA).
 
 - **Remote Streamable HTTP MCP (`protocolVersion: "2025-06-18"`):** `https://mcp.titancapitalforensics.com/mcp`
-- **Health Endpoint:** `https://mcp.titancapitalforensics.com/health`
 - **Discovery Manifest:** `https://mcp.titancapitalforensics.com/.well-known/mcp.json`
-- **Official Portal:** `https://titancapitalforensics.com/`
+- **Service Health:** `https://mcp.titancapitalforensics.com/health`
+- **Published Ed25519 Authority Key:** `https://titancapitalforensics.com/.well-known/titan-ed25519-pub.pem`
+- **Corporate Headquarters Portal:** `https://titancapitalforensics.com/`
 
 ---
 
-## Diagnostic Scope & Zero-Freebies Policy
+## Architectural Overview & Zero-Data-Retention Guarantee
 
-This MCP server operates strictly as a **zero-secret, zero-PII, stateless diagnostic applicability gate**:
+`TITAN Statutory Gate` enables AI coding assistants, autonomous enterprise procurement agents, ERP connectors, and audit workbenches to verify statutory scope, threshold triggers, regulatory schema requirements, and cryptographic `Ed25519` workpaper seals in real time with **zero credentials, zero PII transmission, and zero third-party trackers**.
 
-1. **`check_cbp_drawback_eligibility`** — Checks `19 U.S.C. § 1313(j)(2)` / `19 CFR Part 190` substitution drawback, 8-digit HTSUS vs Schedule B readiness, and the 5-year (`1,825`-day) TFTEA lookback window (`drawbacksovereign.com` — `$395` single filing | `$3,950/yr` Practice Co-Pilot | Chamber-25 `$295/mo + $145/stamp`).
-2. **`check_eu_cbam_eudr_mandate`** — Checks EU CBAM (`Regulation (EU) 2023/956` & `Regulation (EU) 2025/2083` 50-tonne annual mass threshold) and EU EUDR (`Regulation (EU) 2023/1115` Art. 9 polygon closure vs `<= 4` ha rule) (`cbamsovereign.com` `$295` / `eudrpolygon.com` `$245` | Chamber-25 `$295/mo + $145/stamp`).
-3. **`check_irs_179d_cmmc_readiness`** — Checks `26 U.S.C. § 179D` (`IRS Form 7205`, prevailing wage 5x cliff, tax-exempt designer allocation) and DoD `CMMC 2.0` / `NIST SP 800-171` (`32 CFR Part 170`, `SPRS` score floor & 180-day POA&M boundary) (`179dshield.com` `$295` / `cisopass.com` `$295` | Chamber-25 `$295/mo + $145/stamp`).
-4. **`check_uae_qfzp_gdpr_trigger`** — Checks UAE Corporate Tax QFZP `5%` / `AED 5,000,000` de-minimis cliff (`Federal Decree-Law No. 47 of 2022 Art. 18`, `Cabinet Decision 100/2023`, `MD 265/2023`) and EU GDPR `Art. 3 / 30 / 35` DPIA trigger (`qfzpshield.com` `$149` / `getgdprkit.com` `$195` | Chamber-25 `$295/mo + $145/stamp`).
-5. **`verify_titan_ed25519_workpaper_hash`** — Cryptographically verifies SHA-256 digests and Ed25519 signatures against TITAN's published authority public key (`https://titancapitalforensics.com/.well-known/titan-ed25519-pub.pem`) (`titancapitalforensics.com` `$495` | Chamber-25 `$295/mo + $145/stamp`).
+### Five Deterministic Diagnostic Tools
 
-No free tax, duty, carbon, or workpaper calculations are performed via the public MCP interface. Full deterministic `0-ULP BigInt` computations, Microsoft Z3 formal proofs, and `Ed25519`-sealed deliverables are executed client-side inside licensed TITAN portals.
+1. **`check_cbp_drawback_eligibility`** — Evaluates `19 U.S.C. § 1313(j)(2)` / `19 CFR Part 190` substitution duty drawback scope, 8-digit HTSUS vs. Schedule B alignment, and the 5-year (`1,825`-day) TFTEA lookback boundary.
+2. **`check_eu_cbam_eudr_mandate`** — Evaluates EU Definitive CBAM (`Regulation (EU) 2023/956` & `Regulation (EU) 2025/2083` 50-tonne cumulative mass rule) and EU Deforestation Regulation (`Regulation (EU) 2023/1115` Art. 9 GeoJSON polygon closure vs. `<= 4` ha rule).
+3. **`check_irs_179d_cmmc_readiness`** — Evaluates `26 U.S.C. § 179D` (`IRS Form 7205` ASHRAE commercial building deduction & prevailing-wage 5x multiplier) and DoD `CMMC 2.0` / `NIST SP 800-171` (`32 CFR Part 170` SPRS floor & 180-day POA&M boundary).
+4. **`check_uae_qfzp_gdpr_trigger`** — Evaluates UAE Corporate Tax Qualifying Free Zone Person `5%` / `AED 5,000,000` de-minimis cliff (`Federal Decree-Law No. 47 of 2022 Art. 18`) and EU GDPR `Art. 3 / 30 / 35` RoPA & DPIA mandates.
+5. **`verify_titan_ed25519_workpaper_hash`** — Cryptographically verifies `SHA-256` digests and `Ed25519` authority signatures on official TITAN statutory audit dossiers against our published public key.
+
+> **Commercial Boundary**: Public MCP tools return strictly deterministic statutory applicability verdicts, official citations, schema readiness checklists, and direct institutional licensing endpoints. Full mathematical schedules, Microsoft Z3 formal proofs, regulator-ready XML/GeoJSON submissions, and `Ed25519`-sealed audit workpapers execute exclusively inside licensed TITAN portals.
 
 ---
 
-## Connect Any MCP Client (Remote HTTPS — Zero Install)
+## Quick Connect (Zero Installation — Remote Streamable HTTP)
 
-Add to `.mcp.json` / `.cursor/mcp.json` / Claude Desktop:
+Add to `.mcp.json`, `.cursor/mcp.json`, Windsurf, VS Code Copilot, or Claude Desktop configuration:
 
 ```json
 {
@@ -40,57 +43,39 @@ Add to `.mcp.json` / `.cursor/mcp.json` / Claude Desktop:
 }
 ```
 
-Or run locally over `stdio`:
+### Local `stdio` Bridge / CLI Probe (Optional)
 
 ```bash
 pip install .
-titan-statutory-mcp-gate
+titan-statutory-mcp-gate --probe-remote
 ```
 
 ---
 
-## 1-Command Publish Instructions Across Official Registries
+## Sovereign 14-Portal Compliance & Forensic Suite
 
-### 1. Official MCP Registry (`registry.modelcontextprotocol.io` v0.1 — `com.titancapitalforensics/statutory-gate`)
+All 14 commercial portals are operated by **TITAN Capital Forensics LLC** (Albuquerque, New Mexico, USA) under uniform institutional licensing (**`$495` Single-Entity Statutory Audit License** | **`$295/mo` 100% White-Label Partner Desk** | **`$145/stamp` Additional Wholesale Client Stamp**):
 
-Domain namespace `com.titancapitalforensics/*` uses Official Registry HTTP or apex DNS verification (`v=MCPv1; k=ed25519; p=<base64_pub>` on `titancapitalforensics.com` apex TXT or `https://titancapitalforensics.com/.well-known/mcp-registry-auth`).
+| # | Sovereign Portal | Domain | Statutory & Forensic Framework | Institutional Checkout |
+| :--- | :--- | :--- | :--- | :--- |
+| **01** | **179D Shield** | `179dshield.com` | IRS Section 179D (`Form 7205`) ASHRAE Commercial Building Deduction | [Open Licensing Portal](https://179dshield.com/#titan-enterprise-checkout-modal) |
+| **02** | **QFZP Shield** | `qfzpshield.com` | UAE `0%` Qualifying Free Zone Person (`Decree-Law 47/2022`) Substance & De-Minimis | [Open Licensing Portal](https://qfzpshield.com/#titan-enterprise-checkout-modal) |
+| **03** | **CBAM Sovereign** | `cbamsovereign.com` | EU Definitive CBAM (`Reg. 2023/956` & `2025/2083`) Carbon Declarations | [Open Licensing Portal](https://cbamsovereign.com/#titan-enterprise-checkout-modal) |
+| **04** | **CISO Pass** | `cisopass.com` | DoD CMMC 2.0 (`32 CFR 170`), NIST SP 800-171 SPRS & ISO 27001 Dossiers | [Open Licensing Portal](https://cisopass.com/#titan-enterprise-checkout-modal) |
+| **05** | **Drawback Sovereign** | `drawbacksovereign.com` | US CBP Duty Drawback (`19 U.S.C. § 1313` / `19 CFR 190`) Refund Schedules | [Open Licensing Portal](https://drawbacksovereign.com/#titan-enterprise-checkout-modal) |
+| **06** | **EUDR Polygon** | `eudrpolygon.com` | EU Deforestation Regulation (`Reg. 2023/1115`) GeoJSON Polygon Verification | [Open Licensing Portal](https://eudrpolygon.com/#titan-enterprise-checkout-modal) |
+| **07** | **GDPR Kit** | `getgdprkit.com` | EU GDPR `Art. 30` RoPA & `Art. 35` Cross-Border DPIA Audit Packs | [Open Licensing Portal](https://getgdprkit.com/#titan-enterprise-checkout-modal) |
+| **08** | **Workflow Kit** | `getworkflowkit.com` | Deterministic Internal Audit, SOX & Financial Control Checklists | [Open Licensing Portal](https://getworkflowkit.com/#titan-enterprise-checkout-modal) |
+| **09** | **ICV Scorecard** | `icvscorecard.com` | UAE National ICV & KSA IKTVA Pre-Audit Simulation Workpapers | [Open Licensing Portal](https://icvscorecard.com/#titan-enterprise-checkout-modal) |
+| **10** | **RFP Sniper** | `rfpsniper.com` | Enterprise RFP Security & Procurement Compliance Matrices | [Open Licensing Portal](https://rfpsniper.com/#titan-enterprise-checkout-modal) |
+| **11** | **TITAN Capital Forensics** | `titancapitalforensics.com` | Multi-Jurisdiction Group Statutory Attestation & Cryptographic Seal Hub | [Open Licensing Portal](https://titancapitalforensics.com/#titan-enterprise-checkout-modal) |
+| **12** | **TITAN DRM** | `titandrm.com` | C2PA Cryptographic Media Provenance & `.tdrm` Offline Capsule Verification | [Open Licensing Portal](https://titandrm.com/#titan-enterprise-checkout-modal) |
+| **13** | **TITAN ScribeGuard** | `titan-scribeguard.com` | HIPAA Clinical Documentation & Healthcare Billing Compliance Audits | [Open Licensing Portal](https://titan-scribeguard.com/#titan-enterprise-checkout-modal) |
+| **14** | **TITAN Trust Center** | `titantrustcenter.com` | Vendor Security Posture, Subprocessor & SOC 2 Evidence Dossiers | [Open Licensing Portal](https://titantrustcenter.com/#titan-enterprise-checkout-modal) |
 
-```bash
-# Install mcp-publisher (macOS Homebrew)
-brew install mcp-publisher
+---
 
-# Validate server.json locally against 2025-12-11 schema
-mcp-publisher validate server.json
+## Security, Privacy & Licensing
 
-# Generate dedicated Ed25519 registry signing key (requires OpenSSL 3) and login via DNS/HTTP proof, then publish:
-/opt/homebrew/opt/openssl@3/bin/openssl genpkey -algorithm Ed25519 -out /tmp/mcp_reg_key.pem && \
-echo "v=MCPv1; k=ed25519; p=$(/opt/homebrew/opt/openssl@3/bin/openssl pkey -in /tmp/mcp_reg_key.pem -pubout -outform DER | tail -c 32 | base64)" && \
-# Place the printed TXT record at apex titancapitalforensics.com (or /.well-known/mcp-registry-auth), then:
-MCP_PRIVATE_KEY="$(/opt/homebrew/opt/openssl@3/bin/openssl pkey -in /tmp/mcp_reg_key.pem -noout -text | sed -n '/priv:/,/pub:/p' | sed '1d;$d' | tr -d ' :\n')" \
-  mcp-publisher login dns --domain titancapitalforensics.com && \
-mcp-publisher publish server.json
-```
-
-*(Note: After publishing this package to PyPI via `python3 -m build && twine upload dist/*`, add `"packages": [{"registryType": "pypi", "identifier": "titan-statutory-mcp-gate", "version": "1.0.0", "transport": {"type": "stdio"}}]` to `server.json` before re-publishing; `<!-- mcp-name: com.titancapitalforensics/statutory-gate -->` is already embedded above.)*
-
-### 2. Cursor Directory (`cursor.directory/plugins/new`)
-
-1. Push this directory to `https://github.com/titan-capital-forensics/titan-statutory-mcp-gate` (includes `.mcp.json` and `glama.json`):
-   ```bash
-   git init && git add . && git commit -m "Initial release: com.titancapitalforensics/statutory-gate v1.0.0" && git remote add origin https://github.com/titan-capital-forensics/titan-statutory-mcp-gate.git && git push -u origin main
-   ```
-2. Sign in at `https://cursor.directory/plugins/new` with GitHub and submit `https://github.com/titan-capital-forensics/titan-statutory-mcp-gate` (auto-reads `.mcp.json`).
-
-### 3. `mcp.so` (`https://mcp.so/submit`)
-
-Submit directly at `https://mcp.so/submit` using:
-- **Repository URL:** `https://github.com/titan-capital-forensics/titan-statutory-mcp-gate`
-- **Remote MCP Endpoint:** `https://mcp.titancapitalforensics.com/mcp`
-
-### 4. Glama & `awesome-remote-mcp-servers` (`punkpeye/awesome-remote-mcp-servers`)
-
-1. Claim `https://github.com/titan-capital-forensics/titan-statutory-mcp-gate` at `https://glama.ai/mcp/servers` (`glama.json` is included at repo root) to generate the verified Glama connector badge SVG.
-2. Fork `punkpeye/awesome-remote-mcp-servers`, append the single entry below under **Legal / Compliance / Finance** (with live Glama badge + `🔓` unauthenticated `initialize`), and open PR titled `Add TITAN Statutory Gate (🤖🤖🤖)`:
-   ```markdown
-   - [TITAN Statutory Gate](https://mcp.titancapitalforensics.com/mcp) 🔓 [![Glama](https://glama.ai/mcp/servers/titan-capital-forensics/titan-statutory-mcp-gate/badge.svg)](https://glama.ai/mcp/servers/titan-capital-forensics/titan-statutory-mcp-gate) - Stateless US/EU/UAE statutory applicability, schema readiness, and Ed25519 workpaper hash gate.
-   ```
+- **Zero Secrets / Zero Telemetry**: Stateless JSON-RPC 2.0 transport with zero analytics scripts and zero persistent payload storage.
+- **License**: Apache License 2.0 (`LICENSE`) for the open-source MCP connector client; statutory computation engines are commercial software licensed by **TITAN Capital Forensics LLC**, Albuquerque, New Mexico, USA (`audit@titancapitalforensics.com`).
