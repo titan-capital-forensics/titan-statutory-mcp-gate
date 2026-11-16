@@ -3,7 +3,7 @@
   "name": "com.titancapitalforensics/statutory-gate",
   "title": "TITAN Statutory Gate",
   "description": "Stateless diagnostic applicability and schema gate for US, EU, and UAE statutory filings.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "websiteUrl": "https://titancapitalforensics.com/",
   "repository": {
     "url": "https://github.com/titan-capital-forensics/titan-statutory-mcp-gate",
@@ -13,6 +13,22 @@
     {
       "type": "streamable-http",
       "url": "https://mcp.titancapitalforensics.com/mcp"
+    }
+  ],
+  "icons": [
+    {
+      "src": "https://mcp.titancapitalforensics.com/icon.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "256x256"
+      ]
+    },
+    {
+      "src": "https://mcp.titancapitalforensics.com/icon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": [
+        "any"
+      ]
     }
   ]
 }

@@ -31,7 +31,7 @@ PROTOCOL_VERSION = "2025-06-18"
 SUPPORTED_PROTOCOL_VERSIONS = ("2025-06-18", "2025-03-26", "2024-11-05")
 SERVER_NAME = "com.titancapitalforensics/statutory-gate"
 SERVER_TITLE = "TITAN Statutory Gate"
-SERVER_VERSION = "1.0.0"
+SERVER_VERSION = "1.0.1"
 
 ENTITY_LEGAL_NAME = "TITAN Capital Forensics LLC"
 ENTITY_JURISDICTION = "Albuquerque, New Mexico, USA"
@@ -210,91 +210,7 @@ EUDR_PREFIXES = (
 )
 
 # Compact tool catalog strictly < 1,500 total schema tokens
-TOOLS: list[dict[str, Any]] = [
-    {
-        "name": "check_cbp_drawback_eligibility",
-        "description": "Check US CBP duty drawback scope and 5-year lookback readiness (19 USC 1313). Diagnostic gate only; no duty calculations.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "provision": {
-                    "type": "string",
-                    "enum": ["1313_j1_direct", "1313_j2_substitution", "1313_a_b_manufacturing"],
-                    "description": "Drawback statutory subsection",
-                },
-                "import_htsus_8": {"type": "string", "description": "8-digit HTSUS import code"},
-                "export_schedule_b_8": {"type": "string", "description": "8-digit Schedule B export code"},
-                "days_since_import": {"type": "number", "description": "Days since CBP import date"},
-                "accelerated_payment": {"type": "boolean", "description": "Accelerated payment bond flag"},
-                "query_note": {"type": "string", "description": "Optional diagnostic note"},
-            },
-        },
-    },
-    {
-        "name": "check_eu_cbam_eudr_mandate",
-        "description": "Check EU CBAM (Reg 2023/956, 2025/2083 50t rule) and EUDR (Reg 2023/1115) scope and GeoJSON/CN readiness. No carbon math.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "regime": {"type": "string", "enum": ["cbam", "eudr", "both"]},
-                "cn_or_hs_code": {"type": "string", "description": "4-to-8 digit EU CN or HS code"},
-                "annual_mass_tonnes": {"type": "number", "description": "Annual EU mass in tonnes"},
-                "plot_hectares": {"type": "number", "description": "EUDR plot area in hectares"},
-                "geojson_ring_closed": {"type": "boolean", "description": "WGS84 polygon ring closed"},
-                "query_note": {"type": "string", "description": "Optional diagnostic note"},
-            },
-            "required": ["regime"],
-        },
-    },
-    {
-        "name": "check_irs_179d_cmmc_readiness",
-        "description": "Check IRS Section 179D (Form 7205) and DoD CMMC 2.0 / NIST SP 800-171 SPRS readiness. Diagnostic gate only; no tax math.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "mandate": {"type": "string", "enum": ["irs_179d", "cmmc_sprs", "both"]},
-                "building_sqft": {"type": "number", "description": "Commercial/exempt building sq ft"},
-                "prevailing_wage_met": {"type": "boolean", "description": "IRA prevailing wage flag"},
-                "tax_exempt_allocation": {"type": "boolean", "description": "179D(d)(3) allocation flag"},
-                "sprs_score": {"type": "integer", "description": "DoD SPRS score (-203 to 110)"},
-                "handles_cui_or_fci": {"type": "string", "enum": ["none", "fci", "cui"]},
-                "query_note": {"type": "string", "description": "Optional diagnostic note"},
-            },
-            "required": ["mandate"],
-        },
-    },
-    {
-        "name": "check_uae_qfzp_gdpr_trigger",
-        "description": "Check UAE QFZP 0% de-minimis cliff (Decree-Law 47/2022) and EU GDPR Art. 3/30/35 trigger. Diagnostic gate only; no tax math.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "regime": {"type": "string", "enum": ["uae_qfzp", "gdpr", "both"]},
-                "non_qualifying_pct": {"type": "number", "description": "Non-qualifying share (0-100)"},
-                "non_qualifying_aed": {"type": "number", "description": "Non-qualifying revenue AED"},
-                "excluded_activity": {"type": "boolean", "description": "MD 265/2023 excluded activity"},
-                "eu_data_subjects": {"type": "boolean", "description": "GDPR Art. 3 scope flag"},
-                "high_risk_processing": {"type": "boolean", "description": "GDPR Art. 35 DPIA trigger"},
-                "query_note": {"type": "string", "description": "Optional diagnostic note"},
-            },
-            "required": ["regime"],
-        },
-    },
-    {
-        "name": "verify_titan_ed25519_workpaper_hash",
-        "description": "Verify SHA-256 digest and Ed25519 signature of a TITAN workpaper against published authority key. Read-only gate.",
-        "inputSchema": {
-            "type": "object",
-            "properties": {
-                "workpaper_sha256": {"type": "string", "description": "64-hex SHA-256 digest"},
-                "canonical_payload": {"type": "string", "description": "Optional canonical payload"},
-                "signature_b64": {"type": "string", "description": "Optional Base64 Ed25519 signature"},
-                "authority_pub_b64": {"type": "string", "description": "Optional Base64 Ed25519 public key"},
-                "query_note": {"type": "string", "description": "Optional diagnostic note"},
-            },
-        },
-    },
-]
+TOOLS: list[dict[str, Any]] = [{'name': 'check_cbp_drawback_eligibility', 'title': 'US CBP Duty Drawback Statutory Gate', 'description': 'Check US CBP duty drawback statutory scope, 8-digit HTSUS/Schedule B alignment, and 5-year lookback window readiness under 19 U.S.C. 1313. Read-only diagnostic gate; zero duty refund calculations.', 'annotations': {'title': 'US CBP Duty Drawback Statutory Gate', 'readOnlyHint': True, 'destructiveHint': False, 'idempotentHint': True, 'openWorldHint': False}, 'inputSchema': {'type': 'object', 'properties': {'provision': {'type': 'string', 'enum': ['1313_j1_direct', '1313_j2_substitution', '1313_a_b_manufacturing'], 'description': 'Statutory drawback subsection under 19 U.S.C. 1313 (j(1) direct unused, j(2) substitution, or a/b manufacturing).'}, 'import_htsus_8': {'type': 'string', 'description': '8-digit US HTSUS import tariff classification code (digits only or dotted).'}, 'export_schedule_b_8': {'type': 'string', 'description': '8-digit US Schedule B or HTSUS export classification code for substitution/direct check.'}, 'days_since_import': {'type': 'number', 'description': 'Elapsed calendar days since CBP import entry date (checked against the 1,825-day 5-year statutory bar).'}, 'accelerated_payment': {'type': 'boolean', 'description': 'Whether claimant requests 19 CFR 190.92 accelerated payment bond readiness check.'}, 'query_note': {'type': 'string', 'description': 'Optional non-sensitive context note for diagnostic scope triage.'}}}}, {'name': 'check_eu_cbam_eudr_mandate', 'title': 'EU CBAM & EUDR Statutory Scope Gate', 'description': 'Check EU CBAM (Regulation (EU) 2023/956 and 2025/2083 50-tonne threshold) and EUDR (Regulation (EU) 2023/1115) CN/HS scope and WGS84 polygon rules. Read-only diagnostic gate; zero emissions math.', 'annotations': {'title': 'EU CBAM & EUDR Statutory Scope Gate', 'readOnlyHint': True, 'destructiveHint': False, 'idempotentHint': True, 'openWorldHint': False}, 'inputSchema': {'type': 'object', 'properties': {'regime': {'type': 'string', 'enum': ['cbam', 'eudr', 'both'], 'description': "Target European Union border compliance regime to evaluate: 'cbam', 'eudr', or 'both'."}, 'cn_or_hs_code': {'type': 'string', 'description': '4-to-8 digit EU Combined Nomenclature (CN) or Harmonized System (HS) commodity code.'}, 'annual_mass_tonnes': {'type': 'number', 'description': 'Cumulative annual net mass imported into the EU customs territory in metric tonnes.'}, 'plot_hectares': {'type': 'number', 'description': 'Production plot area in hectares (triggers EUDR Art. 9 polygon vs point rule at 4.0 ha).'}, 'geojson_ring_closed': {'type': 'boolean', 'description': 'Whether the WGS84 GeoJSON exterior coordinate ring is topologically closed.'}, 'query_note': {'type': 'string', 'description': 'Optional non-sensitive context note for diagnostic scope triage.'}}, 'required': ['regime']}}, {'name': 'check_irs_179d_cmmc_readiness', 'title': 'IRS Section 179D & DoD CMMC 2.0 Readiness Gate', 'description': 'Check IRS Section 179D (Form 7205) energy-efficient commercial building scope and DoD CMMC 2.0 / NIST SP 800-171 SPRS readiness. Read-only diagnostic gate; zero tax deduction math.', 'annotations': {'title': 'IRS Section 179D & DoD CMMC 2.0 Readiness Gate', 'readOnlyHint': True, 'destructiveHint': False, 'idempotentHint': True, 'openWorldHint': False}, 'inputSchema': {'type': 'object', 'properties': {'mandate': {'type': 'string', 'enum': ['irs_179d', 'cmmc_sprs', 'both'], 'description': "US federal statutory mandate to screen: 'irs_179d', 'cmmc_sprs', or 'both'."}, 'building_sqft': {'type': 'number', 'description': 'Gross floor area of the commercial or tax-exempt building in square feet.'}, 'prevailing_wage_met': {'type': 'boolean', 'description': 'Whether IRA prevailing wage and apprenticeship requirements under 26 U.S.C. 179D(b)(3) are satisfied.'}, 'tax_exempt_allocation': {'type': 'boolean', 'description': 'Whether project claims a Section 179D(d)(3) designer allocation letter from a tax-exempt or government entity.'}, 'sprs_score': {'type': 'integer', 'description': 'Current DoD Supplier Performance Risk System (SPRS) NIST SP 800-171 score (-203 to 110).'}, 'handles_cui_or_fci': {'type': 'string', 'enum': ['none', 'fci', 'cui'], 'description': "Highest defense contract information sensitivity handled: 'none', 'fci' (Level 1), or 'cui' (Level 2+)."}, 'query_note': {'type': 'string', 'description': 'Optional non-sensitive context note for diagnostic scope triage.'}}, 'required': ['mandate']}}, {'name': 'check_uae_qfzp_gdpr_trigger', 'title': 'UAE QFZP De-Minimis & EU GDPR Trigger Gate', 'description': 'Check UAE Corporate Tax QFZP 0% de-minimis cliff (Federal Decree-Law 47/2022 & MD 265/2023) and EU GDPR Art. 3/30/35 triggers. Read-only diagnostic gate; zero tax liability math.', 'annotations': {'title': 'UAE QFZP De-Minimis & EU GDPR Trigger Gate', 'readOnlyHint': True, 'destructiveHint': False, 'idempotentHint': True, 'openWorldHint': False}, 'inputSchema': {'type': 'object', 'properties': {'regime': {'type': 'string', 'enum': ['uae_qfzp', 'gdpr', 'both'], 'description': "Statutory compliance regime to evaluate: 'uae_qfzp', 'gdpr', or 'both'."}, 'non_qualifying_pct': {'type': 'number', 'description': 'Percentage share of non-qualifying revenue out of total Free Zone revenue (0 to 100; 5% statutory cliff).'}, 'non_qualifying_aed': {'type': 'number', 'description': 'Annual non-qualifying revenue in UAE Dirhams (AED; checked against AED 5,000,000 de-minimis ceiling).'}, 'excluded_activity': {'type': 'boolean', 'description': 'Whether entity performs an excluded activity under UAE Ministerial Decision No. 265 of 2023.'}, 'eu_data_subjects': {'type': 'boolean', 'description': 'Whether organization processes personal data of individuals in the EU/EEA under GDPR Article 3.'}, 'high_risk_processing': {'type': 'boolean', 'description': 'Whether processing involves large-scale profiling, special categories, or systematic monitoring triggering GDPR Art. 35 DPIA.'}, 'query_note': {'type': 'string', 'description': 'Optional non-sensitive context note for diagnostic scope triage.'}}, 'required': ['regime']}}, {'name': 'verify_titan_ed25519_workpaper_hash', 'title': 'TITAN Ed25519 Cryptographic Workpaper Verifier', 'description': 'Verify SHA-256 digest and detached Ed25519 signature of a TITAN statutory workpaper against the published authority public key. Read-only offline cryptographic gate.', 'annotations': {'title': 'TITAN Ed25519 Cryptographic Workpaper Verifier', 'readOnlyHint': True, 'destructiveHint': False, 'idempotentHint': True, 'openWorldHint': False}, 'inputSchema': {'type': 'object', 'properties': {'workpaper_sha256': {'type': 'string', 'description': '64-character hexadecimal SHA-256 digest of the canonical TITAN workpaper artifact.'}, 'canonical_payload': {'type': 'string', 'description': 'Optional UTF-8 canonical JSON payload string to hash and verify against the Ed25519 signature.'}, 'signature_b64': {'type': 'string', 'description': 'Optional Base64-encoded 64-byte detached Ed25519 signature over canonical_payload.'}, 'authority_pub_b64': {'type': 'string', 'description': 'Optional Base64-encoded 32-byte Ed25519 public key override (defaults to published TITAN authority key).'}, 'query_note': {'type': 'string', 'description': 'Optional non-sensitive context note for audit log labeling.'}}}}]
 
 
 class GateInputError(ValueError):
