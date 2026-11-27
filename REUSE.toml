@@ -15,6 +15,7 @@ path = [
     "glama.json",
     "pyproject.toml",
     "server.json",
+    "skills/titan-statutory-gate/SKILL.md",
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2026 TITAN Capital Forensics LLC"

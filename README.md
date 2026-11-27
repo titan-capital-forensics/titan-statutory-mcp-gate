@@ -2,6 +2,8 @@
 
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/17188/badge)](https://www.bestpractices.dev/projects/17188)
 [![CI & Security Analysis](https://github.com/titan-capital-forensics/titan-statutory-mcp-gate/actions/workflows/ci.yml/badge.svg)](https://github.com/titan-capital-forensics/titan-statutory-mcp-gate/actions/workflows/ci.yml)
+[![REUSE status](https://api.reuse.software/badge/github.com/titan-capital-forensics/titan-statutory-mcp-gate)](https://api.reuse.software/info/github.com/titan-capital-forensics/titan-statutory-mcp-gate)
+[![Glama MCP Server](https://glama.ai/mcp/servers/titan-capital-forensics/titan-statutory-mcp-gate/badge)](https://glama.ai/mcp/servers/titan-capital-forensics/titan-statutory-mcp-gate)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
 <!-- mcp-name: com.titancapitalforensics/statutory-gate -->
@@ -50,9 +52,22 @@ Add to `.mcp.json`, `.cursor/mcp.json`, Windsurf, VS Code Copilot, or Claude Des
 ### Local `stdio` Bridge / CLI Probe (Optional)
 
 ```bash
-pip install .
+pip install titan-statutory-mcp-gate
 titan-statutory-mcp-gate --probe-remote
 ```
+
+### Agent Skills (`agentskills.io`)
+
+Install the open-source `titan-statutory-gate` agent skill directly in Antigravity, Claude Code, Codex, Cursor, or OpenCode:
+
+```bash
+npx skills add titan-capital-forensics/titan-statutory-mcp-gate
+```
+
+### A2A Agent Discovery Card
+
+- **Canonical A2A Agent Card:** `https://titancapitalforensics.com/.well-known/agent-card.json`
+- **Glama Verified MCP Listing:** `https://glama.ai/mcp/servers/titan-capital-forensics/titan-statutory-mcp-gate`
 
 ---
 
