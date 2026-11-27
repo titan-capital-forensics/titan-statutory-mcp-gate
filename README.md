@@ -1,5 +1,9 @@
 # TITAN Statutory Gate (`com.titancapitalforensics/statutory-gate`)
 
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/17188/badge)](https://www.bestpractices.dev/projects/17188)
+[![CI & Security Analysis](https://github.com/titan-capital-forensics/titan-statutory-mcp-gate/actions/workflows/ci.yml/badge.svg)](https://github.com/titan-capital-forensics/titan-statutory-mcp-gate/actions/workflows/ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+
 <!-- mcp-name: com.titancapitalforensics/statutory-gate -->
 
 Stateless diagnostic statutory applicability, schema readiness, and `Ed25519` workpaper signature verification Model Context Protocol (MCP) server operated by **TITAN Capital Forensics LLC** (Registered Jurisdiction: Albuquerque, New Mexico, USA).
@@ -75,7 +79,11 @@ All 14 commercial portals are operated by **TITAN Capital Forensics LLC** (Albuq
 
 ---
 
-## Security, Privacy & Licensing
+## Security, Testing, Governance & Licensing
 
-- **Zero Secrets / Zero Telemetry**: Stateless JSON-RPC 2.0 transport with zero analytics scripts and zero persistent payload storage.
+- **Zero Secrets / Zero Telemetry**: Stateless JSON-RPC 2.0 transport with zero analytics scripts, zero credential storage, and strict `https://` TLS-only remote probing.
+- **Vulnerability Disclosure**: See [SECURITY.md](SECURITY.md) (encrypted reporting via `audit@titancapitalforensics.com` + OpenPGP `F38185B9E58B9AA560D9A0AC3DEEC6D7518051E1` or GitHub Private Advisories; 14-day response commitment).
+- **Automated Testing & Static Analysis**: Run `pip install -e ".[dev]" && pytest -v -W error && ruff check src tests && bandit -r src` (see [CONTRIBUTING.md](CONTRIBUTING.md) and `.github/workflows/ci.yml`).
+- **Release History**: See [CHANGELOG.md](CHANGELOG.md) (Semantic Versioning `v1.0.1`).
+- **Community Standards**: See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 - **License**: Apache License 2.0 (`LICENSE`) for the open-source MCP connector client; statutory computation engines are commercial software licensed by **TITAN Capital Forensics LLC**, Albuquerque, New Mexico, USA (`audit@titancapitalforensics.com`).

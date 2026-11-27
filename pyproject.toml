@@ -42,6 +42,13 @@ dependencies = [
   "cryptography>=42.0.0"
 ]
 
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.6",
+  "bandit>=1.7"
+]
+
 [project.urls]
 Homepage = "https://titancapitalforensics.com/"
 Repository = "https://github.com/titan-capital-forensics/titan-statutory-mcp-gate"
@@ -52,3 +59,7 @@ titan-statutory-mcp-gate = "titan_statutory_mcp_gate.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

@@ -24,7 +24,6 @@ import re
 from typing import Any
 
 from cryptography.exceptions import InvalidSignature
-from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import ed25519
 
 PROTOCOL_VERSION = "2025-06-18"

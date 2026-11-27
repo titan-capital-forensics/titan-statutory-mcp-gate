@@ -57,6 +57,8 @@ def run_stdio_server() -> int:
 
 def probe_remote(endpoint: str) -> int:
     """Verify remote Streamable HTTP MCP endpoint initialize + tools/list."""
+    if not endpoint.startswith("https://"):
+        raise ValueError("Remote MCP endpoint must use https:// (TLS 1.2+ required).")
     init_req = {
         "jsonrpc": "2.0",
         "id": 1,
@@ -78,7 +80,7 @@ def probe_remote(endpoint: str) -> int:
         headers=base_headers,
         method="POST",
     )
-    with urllib.request.urlopen(req, timeout=15) as resp:
+    with urllib.request.urlopen(req, timeout=15) as resp:  # nosec B310 - https:// enforced above
         init_res = json.loads(resp.read().decode("utf-8"))
         sess = resp.headers.get("Mcp-Session-Id", "")
 
@@ -92,7 +94,7 @@ def probe_remote(endpoint: str) -> int:
         headers=headers,
         method="POST",
     )
-    with urllib.request.urlopen(req2, timeout=15) as resp2:
+    with urllib.request.urlopen(req2, timeout=15) as resp2:  # nosec B310 - https:// enforced above
         tools_res = json.loads(resp2.read().decode("utf-8"))
 
     print(json.dumps({"initialize": init_res, "tools_count": len(tools_res["result"]["tools"])}, indent=2))
