@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 TITAN Capital Forensics LLC
+#
+# SPDX-License-Identifier: Apache-2.0
+
 """
 CLI & stdio MCP Transport for TITAN Statutory Gate (`com.titancapitalforensics/statutory-gate`).
 Zero-secret, zero-PII, stateless diagnostic applicability & Ed25519 hash gate.

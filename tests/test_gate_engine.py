@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 TITAN Capital Forensics LLC
+#
+# SPDX-License-Identifier: Apache-2.0
+
 """Comprehensive automated test suite for TITAN Statutory Gate MCP server & CLI."""
 from __future__ import annotations
 

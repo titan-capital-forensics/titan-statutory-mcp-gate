@@ -1,0 +1,21 @@
+version = 1
+SPDX-PackageName = "titan-statutory-mcp-gate"
+SPDX-PackageSupplier = "TITAN Capital Forensics LLC <audit@titancapitalforensics.com>"
+SPDX-PackageDownloadLocation = "https://github.com/titan-capital-forensics/titan-statutory-mcp-gate"
+
+[[annotations]]
+path = [
+    ".gitignore",
+    ".mcp.json",
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "README.md",
+    "SECURITY.md",
+    "glama.json",
+    "pyproject.toml",
+    "server.json",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 TITAN Capital Forensics LLC"
+SPDX-License-Identifier = "Apache-2.0"

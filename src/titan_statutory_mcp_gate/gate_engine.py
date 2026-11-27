@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 TITAN Capital Forensics LLC
+#
+# SPDX-License-Identifier: Apache-2.0
+
 """
 TITAN Capital Forensics LLC — Stateless Statutory Diagnostic Gate Engine
 ========================================================================

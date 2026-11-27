@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 TITAN Capital Forensics LLC
+#
+# SPDX-License-Identifier: Apache-2.0
+
 name: Publish to PyPI (OIDC Trusted Publishing)
 
 on:
