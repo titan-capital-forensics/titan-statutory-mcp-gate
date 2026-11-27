@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 TITAN Capital Forensics LLC — Stateless Statutory Diagnostic Gate Engine
 ========================================================================
@@ -167,7 +166,7 @@ FREEBIE_KEY_PATTERNS = re.compile(
     r"(free_?calc|exact_?refund|exact_?deduction|output_?workpaper|generate_?form|"
     r"generate_?xml|bypass_?checkout|bypass_?paywall|decrypt_?tdrm|mint_?license|"
     r"private_?key|full_?report|line_?by_?line|dump_?prompt|system_?prompt)",
-    re.I,
+    re.IGNORECASE,
 )
 
 FREEBIE_TEXT_PATTERNS = re.compile(
@@ -183,7 +182,7 @@ FREEBIE_TEXT_PATTERNS = re.compile(
     r"|\bfree(?!\s*[- ]?zone\b)\b[\w\s-]{0,20}(?:workpaper|calc|tax\s+return|refund|deduction|csv|xml|form\s*\d+)"
     r"|ignore\s+(?:previous|all|your|prior)\s+instructions|system\s+prompt|private\s+key"
     r"|decrypt\s+\.?tdrm|mint\s+(?:a\s+)?license",
-    re.I,
+    re.IGNORECASE,
 )
 
 SHA256_RE = re.compile(r"^[a-f0-9]{64}$")

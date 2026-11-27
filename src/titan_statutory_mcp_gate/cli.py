@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 CLI & stdio MCP Transport for TITAN Statutory Gate (`com.titancapitalforensics/statutory-gate`).
 Zero-secret, zero-PII, stateless diagnostic applicability & Ed25519 hash gate.
